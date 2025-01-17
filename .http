@@ -1,0 +1,77 @@
+### Obtener todos los alimentos
+GET http://localhost:8080/api/foods HTTP/1.1
+Accept: application/json
+
+
+### Obtener los usuarios
+GET http://localhost:8080/api/users HTTP/1.1
+Content-Type: application/json
+
+
+### Crear un nuevo alimento
+POST http://localhost:8080/api/foods/add HTTP/1.1
+Content-Type: application/json
+
+ {
+        "name": "Tiramisú",
+        "description": "Clásico tiramisú italiano con capas de bizcocho empapado en café y crema de mascarpone.",
+        "category": "postres",
+        "price": 8.50,
+        "imageUrl": "https://www.gastrolabweb.com/u/fotografias/m/2021/4/30/f1280x720-34456_121271_5050.jpg",
+        "restaurantId": "6715e6a41df1fb57466391c8"
+    }
+
+
+
+### solicitud de login
+
+POST http://localhost:8080/api/users/login HTTP/1.1
+Content-Type: application/json
+
+ {
+        "email":"duvan@cliente.com",
+        "password":"1234789149"
+}
+
+
+###restaurantes  GET
+GET http://localhost:8080/api/restaurants HTTP/1.1
+Content-Type: application/json
+
+
+
+### Crear un nuevo restaurante
+POST http://localhost:8080/api/users/register HTTP/1.1
+Content-Type: application/json
+
+{
+  "name": "Pepsi cool",
+  "email": "perpsicool@restaurant.com",
+  "password": "0000",
+  "identificacion": "98989898",
+  "address": "ac 15 numero 12b- 23",
+  "neighborhood": "Rochela",
+  "city": "Villavicencio",
+  "description": "este es un ejemplo de lo que se puede o no hacer en un enjenwk kjasnd",
+  "menu": [],
+  "logo":"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQJ7pCWk_hifqwup3aQgzv_bU-0bNCJcKYGmg&s",
+  "images":[
+    "https://upload.wikimedia.org/wikipedia/commons/thumb/f/f3/Wfm_palo_alto.jpg/1200px-Wfm_palo_alto.jpg",
+    "https://learncalifornia.org/wp-content/uploads/2024/01/palo-alto-california-1024x585.jpg",
+    "https://trenchsstudio.com/web/wp-content/uploads/2021/05/TELEFERIC-PALO-ALTO-TRENCHS-STUDIO-01.jpg"
+  ]
+}
+### Crear un nuevo restaurante
+
+POST http://localhost:8080/api/users/register HTTP/1.1
+Content-Type: application/json
+
+{
+  "name": "Juan Pérez",
+  "email": "juan@cliente.com",
+  "password": "password123",
+  "identificacion": "123456789",
+  "address": "Calle Falsa 123",
+  "neighborhood": "Centro",
+  "city": "Ciudad Ejemplo"
+}
