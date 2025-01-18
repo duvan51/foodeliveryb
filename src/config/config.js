@@ -1,15 +1,11 @@
 import dotenv from "dotenv"; 
-import program from "../utils/commander.js";
+import program from "../utils/commander.js"; //mas adelante uso para desarr y prodcc
 
-const {mode} = program.opts(); 
-//Aca me llega "desarrollo" o "produccion" segun lo que colocamos en la consola al ejecutar el proceso. 
 
-dotenv.config({
-    path: mode === "desarrollo"?"./.env.desarrollo": "./.env.produccion"
-}); 
+dotenv.config();
 
 let configObject = {
-    puerto: process.env.PUERTO,
+    puerto: process.env.PUERTO || 8080,
     mongo_url: process.env.MONGO_URL
 }
 

@@ -24,8 +24,14 @@ app.use(express.json());
 app.use(cookieParser());
 
 
+
+//redireccionamiento a la ruta de swagger
+app.get('/', (req, res) => {
+    res.redirect('/api-docs');
+});
+
 //ruta de documentacion
-app.use('/', swaggerUI.serve, swaggerUI.setup(specificationSwagger));
+app.use('/api-docs', swaggerUI.serve, swaggerUI.setup(specificationSwagger));
 
 
 
@@ -37,7 +43,7 @@ app.use('/api/restaurants', restaurantRoutes);
 // Inicia el servidor y abre la página en el navegador
 app.listen(puerto, async () => {
     console.log(`Servidor en funcionamiento en http://localhost:${puerto}`);
-    await open(`http://localhost:${puerto}`);  // Abre la URL en el navegador
+   
 });
 
 //food-delivery-backend
