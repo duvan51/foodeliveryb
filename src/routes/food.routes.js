@@ -5,9 +5,42 @@ import { authorizeRoles } from "../middlewares/role.middleware.js";
 
 const router = express.Router();
 
-// Ruta para obtener todos los productos de comida
+
+/**
+ * @swagger
+ * tags:
+ *   name: Foods
+ *   description: Peticiones relacionadas con Foods
+ */
+
+/**
+ * @swagger
+ * /api/foods:
+ *   get:
+ *     tags:
+ *     -  Foods
+ *     summary: Return the list of all foods
+ *     description: Retrieve a list of all food records from the database.
+ *     responses:
+ *       200:
+ *         description: A list of food items.
+ *         content:
+ *           application/json:
+ *             schema:
+ *               type: array
+ *               items:
+ *                 $ref: '#/components/schemas/Food'
+ */
 router.get("/", FoodController.allFoods);
 // Ruta para buscar productos de comida por categoría o nombre --> usa query pero no se si cambiarlo a params...AGREGO PROTECT Y authorizeRoles
+
+
+
+
+
+
+
+
 router.get(
   "/search", 
   FoodController.searchFood

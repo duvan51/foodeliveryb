@@ -9,6 +9,9 @@ import userRoutes from './routes/user.routes.js';
 import foodRoutes from './routes/food.routes.js';
 import restaurantRoutes from './routes/restaurant.routes.js';
 
+import swaggerUI from "swagger-ui-express";
+import specificationSwagger from "../swagger/swagger.js";
+
 const app = express();
 const { mongo_url, puerto } = configObject;
 // conexion a la base de datos [done mi cluster]
@@ -19,6 +22,12 @@ mongoose.connect(mongo_url)
 app.use(cors());
 app.use(express.json());
 app.use(cookieParser());
+
+
+//ruta de documentacion
+app.use('/', swaggerUI.serve, swaggerUI.setup(specificationSwagger));
+
+
 
 // Rutas
 app.use('/api/users', userRoutes);
