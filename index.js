@@ -26,7 +26,7 @@ app.use(cookieParser());
 
 
 //redireccionamiento a la ruta de swagger
-//app.get('/', (req, res) => {res.redirect('/api-docs');});
+app.get('/', (req, res) => {res.redirect('/api-docs');});
 
 //ruta de documentacion
 app.use('/api-docs', swaggerUI.serve, swaggerUI.setup(specificationSwagger));
