@@ -1,5 +1,5 @@
 import dotenv from "dotenv"; 
-import program from "../utils/commander.js"; //mas adelante uso para desarr y prodcc
+//mport program from "../utils/commander.js"; //mas adelante uso para desarr y prodcc
 
 
 dotenv.config();
