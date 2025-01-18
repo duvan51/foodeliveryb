@@ -3,14 +3,14 @@ import express from 'express';
 import cors from 'cors';
 import mongoose from 'mongoose';
 import cookieParser from "cookie-parser";
-import configObject from './config/config.js';
+import configObject from './src/config/config.js';
 import open from 'open';  // Importa el paquete open para abrir de una la pagina al iniciar
-import userRoutes from './routes/user.routes.js';
-import foodRoutes from './routes/food.routes.js';
-import restaurantRoutes from './routes/restaurant.routes.js';
+import userRoutes from './src/routes/user.routes.js';
+import foodRoutes from './src/routes/food.routes.js';
+import restaurantRoutes from './src/routes/restaurant.routes.js';
 
 import swaggerUI from "swagger-ui-express";
-import specificationSwagger from "../swagger/swagger.js";
+import specificationSwagger from "./swagger/swagger.js";
 
 const app = express();
 const { mongo_url, puerto } = configObject;
