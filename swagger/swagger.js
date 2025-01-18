@@ -13,6 +13,10 @@ const options = {
         url: 'http://localhost:8080/',
         description: 'Local server',
       },
+      {
+        url:'https://food-delivery-backend-beryl-six.vercel.app/',
+        description: 'server production',
+      }
     ],
     components: {
       securitySchemes: {
