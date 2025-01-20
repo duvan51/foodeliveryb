@@ -26,11 +26,9 @@ app.use(cookieParser());
 
 
 //redireccionamiento a la ruta de swagger
-app.get('/', (req, res) => {res.redirect('/api-docs');});
-
-//ruta de documentacion
-app.use('/api-docs', swaggerUI.serve, swaggerUI.setup(specificationSwagger));
-
+app.get('/', (req, res) => {
+    res.send('Bienvenido a la API. Visita /api-docs para la documentación.');
+});
 
 
 // Rutas
@@ -38,10 +36,26 @@ app.use('/api/users', userRoutes);
 app.use('/api/foods', foodRoutes);
 app.use('/api/restaurants', restaurantRoutes);
 
+// Manejo de rutas no encontradas
+app.use((req, res, next) => {
+    res.status(404).send('Endpoint no encontrado');
+  });
+
+
+//ruta de documentacion
+//
+app.use('/api-docs', (req, res, next) => {
+    console.log(`Request to Swagger: ${req.method} ${req.url}`);
+    next();
+  }, swaggerUI.serve, swaggerUI.setup(specificationSwagger));
+  
+
+
+
+
 // Inicia el servidor y abre la página en el navegador
-app.listen(puerto, async () => {
-    console.log(`Servidor en funcionamiento en http://localhost:${puerto}`);
-   
-});
+//app.listen(puerto, async () => { console.log(`Servidor en funcionamiento en http://localhost:${puerto}`);});
 
 //food-delivery-backend
+
+export default app;
