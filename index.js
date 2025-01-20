@@ -58,4 +58,3 @@ app.listen(puerto, async () => { console.log(`Servidor en funcionamiento en http
 
 //food-delivery-backend
 
-export default app;
