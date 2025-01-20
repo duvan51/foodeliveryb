@@ -8,14 +8,18 @@ import open from 'open';  // Importa el paquete open para abrir de una la pagina
 import userRoutes from './src/routes/user.routes.js';
 import foodRoutes from './src/routes/food.routes.js';
 import restaurantRoutes from './src/routes/restaurant.routes.js';
+import dotenv from "dotenv"; 
 
 import swaggerUI from "swagger-ui-express";
 import specificationSwagger from "./swagger/swagger.js";
 
 const app = express();
-const { mongo_url, puerto } = configObject;
+dotenv.config();
+
+
+
 // conexion a la base de datos [done mi cluster]
-mongoose.connect(mongo_url)
+mongoose.connect(process.env.MONGO_URL)
     .then(() => console.log("Conexión exitosa!"))
     .catch((error) => console.log("Error en la conexión", error));
 
@@ -35,6 +39,11 @@ app.get('/', (req, res) => {
 app.use('/api/users', userRoutes);
 app.use('/api/foods', foodRoutes);
 app.use('/api/restaurants', restaurantRoutes);
+//ruta de documentacion
+//
+app.use('/api-docs', swaggerUI.serve, swaggerUI.setup(specificationSwagger));
+  
+
 
 // Manejo de rutas no encontradas
 app.use((req, res, next) => {
@@ -42,19 +51,12 @@ app.use((req, res, next) => {
   });
 
 
-//ruta de documentacion
-//
-app.use('/api-docs', (req, res, next) => {
-    console.log(`Request to Swagger: ${req.method} ${req.url}`);
-    next();
-  }, swaggerUI.serve, swaggerUI.setup(specificationSwagger));
-  
 
 
 
-
+const PORT = process.env.PORT || 8080;
 // Inicia el servidor y abre la página en el navegador
-app.listen(puerto, async () => { console.log(`Servidor en funcionamiento en http://localhost:${puerto}`);});
+app.listen(PORT, async () => { console.log(`Servidor en funcionamiento en http://localhost:${PORT}`);});
 
 //food-delivery-backend
 
