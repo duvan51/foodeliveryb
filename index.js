@@ -31,7 +31,7 @@ app.use(cookieParser());
 
 //redireccionamiento a la ruta de swagger
 app.get('/', (req, res) => {
-    res.send('Bienvenido a la API. Visita /api-docs para la documentación.');
+    res.redirect('/api-docs');
 });
 
 
