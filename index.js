@@ -54,7 +54,7 @@ app.use('/api-docs', (req, res, next) => {
 
 
 // Inicia el servidor y abre la página en el navegador
-//app.listen(puerto, async () => { console.log(`Servidor en funcionamiento en http://localhost:${puerto}`);});
+app.listen(puerto, async () => { console.log(`Servidor en funcionamiento en http://localhost:${puerto}`);});
 
 //food-delivery-backend
 
